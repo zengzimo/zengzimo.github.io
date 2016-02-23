@@ -844,7 +844,7 @@ a {
   color: transparent;
 }
 #header .header-nav .social #GitHub {
-  background: url("/img/github.png") center no-repeat #fff;
+  background: url("/img/GitHub.png") center no-repeat #fff;
 }
 #header .header-nav .social .V2EX:before {
   content: '\f18a';
