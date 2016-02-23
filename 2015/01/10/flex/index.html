@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS Flex模型 | Whyy&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;lt;!doctype html&amp;gt;
+Web的Flex弹性盒模型    body{        font-family: ‘微软雅黑’;        /font-family: cursive, ‘微软雅黑’;/        padding: 0;        margin: 20px 0 40px;        font-size: 16px;        background">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS Flex模型">
+<meta property="og:url" content="http://yoursite.com/2015/01/10/flex/index.html">
+<meta property="og:site_name" content="Whyy's Blog">
+<meta property="og:description" content="&amp;lt;!doctype html&amp;gt;
+Web的Flex弹性盒模型    body{        font-family: ‘微软雅黑’;        /font-family: cursive, ‘微软雅黑’;/        padding: 0;        margin: 20px 0 40px;        font-size: 16px;        background">
+<meta property="og:updated_time" content="2016-02-23T09:45:58.987Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS Flex模型">
+<meta name="twitter:description" content="&amp;lt;!doctype html&amp;gt;
+Web的Flex弹性盒模型    body{        font-family: ‘微软雅黑’;        /font-family: cursive, ‘微软雅黑’;/        padding: 0;        margin: 20px 0 40px;        font-size: 16px;        background">
+  
+    <link rel="alternative" href="/atom.xml" title="Whyy&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" type="text/css">
+  
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Whyy</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">迈入新世界，为了成为独当一面的 Web 前端工程师！</p>
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:zengzimo8710@gmail.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/zengzimo" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Css/" style="font-size: 10px;">Css</a> <a href="/tags/Flex/" style="font-size: 10px;">Flex</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Whyy</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Whyy</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">迈入新世界，为了成为独当一面的 Web 前端工程师！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:zengzimo8710@gmail.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/zengzimo" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-flex" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/10/flex/" class="article-date">
+      <time datetime="2015-01-10T14:38:01.000Z" itemprop="datePublished">2015-01-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS Flex模型
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/术业专攻模型/">术业专攻模型</a><a class="article-category-link" href="/categories/术业专攻模型/术业专攻/">术业专攻</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/">Css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flex/">Flex</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&lt;!doctype html&gt;</p>
+<html lang="en"><br><head><br><meta charset="UTF-8"><br><title>Web的Flex弹性盒模型</title><br><style><br>    body{<br>        font-family: ‘微软雅黑’;<br>        /<em>font-family: cursive, ‘微软雅黑’;</em>/<br>        padding: 0;<br>        margin: 20px 0 40px;<br><br>        font-size: 16px;<br>        background-color: #F9F9F9;<br>    }<br>    h1{<br>        color: #0BF;<br>        text-indent: 15px;<br>    }<br>    h3{<br>        color: #6D7273;<br>        text-indent: 15px;<br>        padding: 10px 0;<br>        background-color: #fff;<br>    }<br>    p{<br>        margin: 0;<br>        padding: 0;<br>        color: #666;<br>        margin-bottom: 5px;<br>    }<br><br>    .boxes{<br>        padding: 0 10px;<br>        overflow: hidden;<br>        display: -webkit-flex;<br>        flex-wrap: wrap;<br>        align-content:flex-start<br>    }<br>    .box{<br>        width: 400px;<br>        padding: 8px;<br>        margin-right: 20px;<br>        margin-bottom: 10px;<br>        display: inline-block;<br>        box-shadow: 2px 2px 3px 1px #E0E0E0;<br>    }<br><br>    .boxstyle{<br>        padding: 8px 0;<br>    }<br>    .boxborder{<br>        border: 1px dashed #B6B6B6;<br>    }<br>    .demo{<br>        color: #fff;<br>        display: -webkit-flex;<br>        text-align: center;<br>    }<br>    .demo .item{<br>        line-height: 40px;<br>        background-color: #ddd;<br>    }<br>    .demo .item:nth-child(1){<br>        background-color: #E46C49;<br>    }<br>    .demo .item:nth-child(2){<br>        background-color: #37B0D3;<br>    }<br>    .demo .item:nth-child(3){<br>        background-color: #68B33D;<br>    }<br>    .demo .item:nth-child(4){<br>        background-color: #E46775;<br>    }<br>    .demo .item:nth-child(5){<br>        background-color: #CFC731;<br>    }<br>    .demo .item:nth-child(6){<br>        background-color: #8370F4;<br>    }<br><br>    .demo .item span{<br>        display: block;<br>    }<br><br>    .demo2 .item{<br>        height: 60px;<br>        width: 150px;<br>        word-wrap: break-word;<br>        line-height: 1.5;<br>    }<br><br>    .demo-row{<br>        flex-direction: row;<br>    }<br>    .demo-row-reverse{<br>        flex-direction: row-reverse;<br>    }<br>    .demo-column{<br>        height: 200px;<br>        flex-direction: column;<br>    }<br>    .demo-column-reverse{<br>        height: 200px;<br>        flex-direction: column-reverse;<br>    }<br><br>    .demo-nowrap{<br>        -webkit-flex-wrap: nowrap;<br>        width: 400px;<br>    }<br>    .demo-wrap{<br>        -webkit-flex-wrap: wrap;<br>        width: 400px;<br>    }<br>    .demo-wrap-reverse{<br>        -webkit-flex-wrap: wrap-reverse;<br>        width: 400px;<br>    }<br>    .demo-align-content{<br>        width: 400px;<br>        flex-wrap: wrap;<br>        height:200px;<br>        border: 1px dashed #B6B6B6;<br>    }<br>    .demo-align-content .item:nth-child(1), .demo-align-content .item:nth-child(2), .demo-align-content .item:nth-child(3),<br>    .demo-align-content .item:nth-child(4), .demo-align-content .item:nth-child(5), .demo-align-content .item:nth-child(6){<br>        background-color: #717171;<br>        width: 80px;<br>        margin: 2px 10px;<br>    }<br><br></style><br></head><br><body><br>    <h1>Web的Flex弹性盒模型</h1><br>    <section class="content"><br><br>        <h3>[ flex ]</h3><br>        <div class="boxes"><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo demo1"><br>                    <div class="item" style="width:100px">width:100px;</div><br>                    <div class="item" style="flex:2">flex: 2;</div><br>                    <div class="item" style="flex:1">flex: 1;</div><br>                </div><br>            </div><br><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>display: -webkit-flex; </p><br>                </div><br>                <div class="demo demo2 boxborder"><br>                    <div class="item" style="margin-right:10px;"><br>                        <span>width:150px;</span> <span>margin-right:10px;</span></div><br>                    <div class="item" style="flex:1">flex: 1;</div><br>                    <div class="item" style="margin-left:10px;"><br>                        <span>width:150px;</span> <span>margin-left:10px;</span></div><br>                </div><br>            </div><br>        </div><br><br>        <h3>[ flex-direction ]</h3><br>        <div class="boxes" style="width:900px"><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>flex-direction: row; /<em>default</em>/</p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo demo-row"><br>                    <div class="item" style="flex:1">flex: 1;</div><br>                    <div class="item" style="flex:2">flex: 2;</div><br>                    <div class="item" style="flex:3">flex: 3;</div><br>                </div><br>            </div><br><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>flex-direction: row-reverse;</p><br>                    <p>display: -webkit-flex; </p><br>                </div><br>                <div class="demo demo-row-reverse"><br>                    <div class="item" style="flex:1">flex: 1;</div><br>                    <div class="item" style="flex:2">flex: 2;</div><br>                    <div class="item" style="flex:3">flex: 3;</div><br>                </div><br>            </div><br><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>flex-direction: column;</p><br>                    <p>display: -webkit-flex; </p><br>                </div><br>                <div class="demo demo-column"><br>                    <div class="item" style="flex:1">flex: 1;</div><br>                    <div class="item" style="flex:2">flex: 2;</div><br>                    <div class="item" style="flex:3">flex: 3;</div><br>                </div><br>            </div><br><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>flex-direction: column-reverse;</p><br>                    <p>display: -webkit-flex; </p><br>                </div><br>                <div class="demo demo-column-reverse"><br>                    <div class="item" style="flex:1">flex: 1;</div><br>                    <div class="item" style="flex:2">flex: 2;</div><br>                    <div class="item" style="flex:3">flex: 3;</div><br>                </div><br>            </div><br>        </div><br><br>        <h3>[ flex-wrap ]</h3><br>        <div class="boxes" style="width:1310px"><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>-webkit-flex-wrap: nowrap; /<em> default </em>/</p><br>                    <p>display: -webkit-flex; </p><br>                    <p>width: 400px</p><br>                </div><br>                <div class="demo demo-nowrap"><br>                    <div class="item" style="width: 100px">100px;</div><br>                    <div class="item" style="width: 200px">width: 200px;</div><br>                    <div class="item" style="width: 300px">width: 300px;</div><br>                </div><br>            </div><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>-webkit-flex-wrap: wrap</p><br>                    <p>display: -webkit-flex; </p><br>                    <p>width: 400px</p><br>                </div><br>                <div class="demo demo-wrap boxborder"><br>                    <div class="item" style="width: 100px">100px;</div><br>                    <div class="item" style="width: 200px">width: 200px;</div><br>                    <div class="item" style="width: 300px">width: 300px;</div><br>                </div><br>            </div><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>-webkit-flex-wrap: wrap-reverse</p><br>                    <p>display: -webkit-flex; </p><br>                    <p>width: 400px</p><br>                </div><br>                <div class="demo demo-wrap-reverse boxborder"><br>                    <div class="item" style="width: 100px">100px;</div><br>                    <div class="item" style="width: 200px">width: 200px;</div><br>                    <div class="item" style="width: 300px">width: 300px;</div><br>                </div><br>            </div><br>        </div><br><br>        <h3>[ flex-flow ]: flex-direction flex-wrap; /<em> 自个体会吧 </em>/</h3><br><br>        <h3>[ justify-content ]</h3><br>        <div class="boxes" style="width:1310px;"><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>/<em> 效果如同 float:left; </em>/</p><br>                    <p>justify-content: flex-start; /<em> default </em>/</p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo boxborder" style="justify-content: flex-start;"><br>                    <div class="item" style="width:100px">width:100px;</div><br>                    <div class="item" style="width:100px">width:100px;</div><br>                </div><br>            </div><br><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p></p><p>/<em> 效果如同 float:right; </em>/</p><p></p><br>                    <p>justify-content: flex-end;</p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo demo-justify boxborder" style="justify-content: flex-end;"><br>                    <div class="item" style="width:100px">width:100px;</div><br>                    <div class="item" style="width:100px">width:100px;</div><br>                </div><br>            </div><br><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>/<em> 第三代水平居中方案 </em>/</p><br>                    <p>justify-content: center;</p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo demo-justify-end boxborder" style="justify-content: center;"><br>                    <div class="item" style="width:100px">width:100px;</div><br>                    <div class="item" style="width:100px">width:100px;</div><br>                </div><br>            </div><br><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>justify-content: space-between; </p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo demo-justify boxborder" style="justify-content: space-between;"><br>                    <div class="item" style="width:100px">width:100px;</div><br>                    <div class="item" style="width:100px">width:100px;</div><br>                </div><br>            </div><br><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>justify-content: space-around; </p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo demo-justify-end boxborder" style="justify-content: space-around;"><br>                    <div class="item" style="width:100px">width:100px;</div><br>                    <div class="item" style="width:100px">width:100px;</div><br>                </div><br>            </div><br>        </div><br><br>        <h3>[ align-self ]</h3><br>        <div class="boxes"><br>            <div class="box" style="width:1000px;"><br>                <div class="boxstyle"><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo boxborder" style="width: 1000px; height:200px;"><br>                    <div class="item" style="width:200px; align-self:flex-start;">align-self:flex-start;</div><br>                    <div class="item" style="width:200px; align-self:flex-end;">align-self:flex-end;</div><br>                    <div class="item" style="width:200px; align-self:center;">align-self:center;</div><br>                    <div class="item" style="width:200px; align-self:auto;"><br>                        <span>align-self:auto;</span><br>                        <span>/<em>default </em>/</span><br>                    </div><br><br>                    <div class="item" style="width:200px; align-self:baseline;">align-self:baseline;</div><br>                    <div class="item" style="width:200px; align-self:stretch;">align-self:stretch;</div><br>                </div><br>            </div><br>        </div><br><br>        <h3>[ align-items ]</h3><br>        <div class="boxes"><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>align-items: flex-start; /<em> default </em>/</p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo boxborder" style="align-items: flex-start;height:200px;"><br>                    <div class="item" style="width:100px">width:100px;</div><br>                    <div class="item" style="width:100px">width:100px;</div><br>                </div><br>            </div><br><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>align-items: flex-end; </p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo boxborder" style="align-items: flex-end;height:200px;"><br>                    <div class="item" style="width:100px">width:100px;</div><br>                    <div class="item" style="width:100px">width:100px;</div><br>                </div><br>            </div><br><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>/<em> 第三代垂直居中 </em>/</p><br>                    <p>align-items: center; </p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo boxborder" style="align-items: center;height:200px;"><br>                    <div class="item" style="width:100px">width:100px;</div><br>                    <div class="item" style="width:100px">width:100px;</div><br>                </div><br>            </div><br><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>align-items: baseline; </p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo boxborder" style="align-items: baseline;height:200px;"><br>                    <div class="item" style="width:100px">width:100px;</div><br>                    <div class="item" style="width:100px">width:100px;</div><br>                </div><br>            </div><br><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>align-items: stretch; </p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo boxborder" style="align-items: stretch;height:200px;"><br>                    <div class="item" style="width:100px; height:100px;">height:100px;</div><br>                    <div class="item" style="width:150px; min-height:20px;">min-height:20px;</div><br>                    <div class="item" style="width:150px; max-height:60px;">max-height:60px;</div><br>                </div><br>            </div><br>        </div><br><br><br>        <h3>[ align-content ]</h3><br>        <div class="boxes"><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>/<em> <span style="color:red"> 对比 align-items</span></em>/</p><br>                    <p>align-items: flex-start</p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo demo-align-content" style="align-items: flex-start"><br>                    <div class="item">a</div><br>                    <div class="item">b</div><br>                    <div class="item">c</div><br>                    <div class="item">d</div><br>                    <div class="item">e</div><br>                    <div class="item">f</div><br><br>                </div><br>            </div><br><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>align-content: flex-start; </p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo demo-align-content" style="align-content: flex-start;"><br>                    <div class="item">a</div><br>                    <div class="item">b</div><br>                    <div class="item">c</div><br>                    <div class="item">d</div><br>                    <div class="item">e</div><br>                    <div class="item">f</div><br><br>                </div><br>            </div><br><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>align-content: flex-end; </p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo demo-align-content" style="align-content: flex-end;"><br>                    <div class="item">a</div><br>                    <div class="item">b</div><br>                    <div class="item">c</div><br>                    <div class="item">d</div><br>                    <div class="item">e</div><br>                    <div class="item">f</div><br><br>                </div><br>            </div><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>align-content: center; </p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo demo-align-content" style="align-content: center;"><br>                    <div class="item">a</div><br>                    <div class="item">b</div><br>                    <div class="item">c</div><br>                    <div class="item">d</div><br>                    <div class="item">e</div><br>                    <div class="item">f</div><br><br>                </div><br>            </div><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>align-content: space-between; </p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo demo-align-content" style="align-content: space-between;"><br>                    <div class="item">a</div><br>                    <div class="item">b</div><br>                    <div class="item">c</div><br>                    <div class="item">d</div><br>                    <div class="item">e</div><br>                    <div class="item">f</div><br>                </div><br>            </div><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>align-content: space-around; </p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo demo-align-content" style="align-content: space-around;"><br>                    <div class="item">a</div><br>                    <div class="item">b</div><br>                    <div class="item">c</div><br>                    <div class="item">d</div><br>                    <div class="item">e</div><br>                    <div class="item">f</div><br><br>                </div><br>            </div><br><br>            <div class="box"><br>                <div class="boxstyle"><br>                    <p>align-content: stretch; /<em>default</em>/ </p><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo demo-align-content" style="align-content: stretch;"><br>                    <div class="item">a</div><br>                    <div class="item">b</div><br>                    <div class="item">c</div><br>                    <div class="item">d</div><br>                    <div class="item">e</div><br>                    <div class="item">f</div><br><br>                </div><br>            </div><br><br>        </div><br><br>        <h3>[ order ]</h3><br>        <div class="boxes"><br>            <div class="box" style="width:1000px;"><br>                <div class="boxstyle"><br>                    <p>display: -webkit-flex;</p><br>                </div><br>                <div class="demo demo-align-content" style="width: 1000px;height:40px;"><br>                    <div class="item">a</div><br>                    <div class="item">b</div><br>                    <div class="item">c</div><br>                    <div class="item" style="order:-1; width:120px"> d (order:-1) </div><br>                    <div class="item">e</div><br>                    <div class="item">f</div><br>                </div><br>            </div><br>        </div><br><br>    </section><br><br><br></body><br></html>
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2015/08/28/Front-End-Study/">
+                    个人 Web 前端学习路线
+                </a>
+            </div>
+        
+        
+    </nav>
+
+  
+</article>
+
+
+
+
+    
+        <section class="youyan" id="comments">
+  <div id="uyan_frame"></div>
+  <script src="http://v2.uyan.cc/code/uyan.js?uid=2085034"></script>
+</section>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2015/08/28/Front-End-Study/" title="上一篇: 个人 Web 前端学习路线">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/02/23/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/10/hexo-post-version-control/">关联 GitHub, 让 Hexo 支持查看文章更新历史</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/28/Front-End-Study/">个人 Web 前端学习路线</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/01/10/flex/">CSS Flex模型</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 Whyy
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+    <style>
+        body {
+          background: lightgray;
+        }
+        #container .left-col {
+          background: white;
+        }
+        .article-inner {
+          background: white;
+          margin-bottom: 1em;
+        }
+        .post-nav-button {
+          background: #ececec;
+        }
+        #header .header-nav .social #GitHub {
+          background-color: #bfd3ec;
+        }
+        #post-nav-button a {
+          background: rgba(215, 216, 215, .2);
+        }
+        .post-list {
+          background: white;
+        }
+    </style>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
