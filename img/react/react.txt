@@ -1,0 +1,59 @@
+﻿hot-loader
+
+redux-dev-tools
+
+
+Immutable.js
+
+
+redux-state    not deep-copy                        http://undefinedblog.com/understabd-react-lifecycle/  理解 React 生命周期方法
+
+
+
+http://www.duanzhihu.com/answer/18471064
+
+1.Components 是有层级关系的，而每一个 Components 都能够直接改变 Model 中的数据。当层级关系复杂后，你无法准确定位到到底是哪个 Component 改变了 Model。
+
+2.当组件之间需要共享 Model 时，只能在共同的父级 Component 初始化 Model，并把 Model 当做 props 传给子组件。这样一方面增加了单个子组件加载时间，另一方面也违背了模块设计的哲学，增加了模块之间的耦合性。
+
+3.当需要进行组件性能优化时（使用 shouldComponentUpdate 生命周期方法），若你组件用来渲染的数据既由 Model 提供、又需要根据新的 props 算出新的 state，这个生命周期的处理会十分复杂。
+
+
+
+貌似说着说着变成 Flux 科普文了，再拉回来，对比一下 Backbone.Model + React 和 Flux 的区别在于？
+1.Component 中不直接改变数据！Component 中不直接改变数据！Component 中不直接改变数据！
+这点很重要！当你的应用写的日渐复杂的时候，你会因为 Backbone.Model 中的某个值到底是在哪一层的哪个 Component 中被改变而 debug 数小时不得解。反观 Flux 抽象出了 Action 的概念，所有需要改变数据的操作都变成了调用某个 action。原来点击按钮数字 + 1，在 Backbone.Model 中就是 model.set('data', this.get('data') + 1)；而在 Flux 中，变成了两步：1、在 Component 中调用某个 action，形如 plusOne(); 2、在 action 中有一个 plusOne 方法，dispatch 一个事件，包含 type: BUTTON_CLICK，因为这里只是简单的 + 1逻辑，所以不再需要 payload。这样看似把应用做复杂了，但是你能清楚的知道每一次操作究竟是哪个方法改变了哪个数据，debug 起来就会得心应手很多。
+永远不 mutate state & props。
+
+2.团队中有很多实习生在写 React 应用的时候喜欢 this.state.xxx = xxx; ，了解 React 应用的同学都知道直接 mutate state 和 props 是标准的 anti-pattern。其实有时候，我自己也会不自知的 mutate props，比如某些 props 是对象数组，我只对数据进行一个浅拷贝就传给一个可能 mutate props 的子组件，导致自己拿到的最终数据被 mutate，像这种问题也非常难 debug。
+这个问题 Flux 并没有直接解决，但是你看到伴随着 React + Flux 如雨后春笋般冒出的 Immutable 库就知道这个方向是多么的众望所归了。
+因为 Flux 中，所有的数据都储存在 Store 中，你可以进行集中管理，因此将 Store 设计成 Immutable 就变得手到擒来了。就以目前最火的 Flux 变种 redux 为例（redux 大家有兴趣的话也可以细聊一下），它的设计理念就是 Store 不再定义如何直接改变 state，而是如何 reduce state，也就是每一个 action 经由 Store 响应后，均会产生一个全新的 state。因而在 redux 中，也没有了 Store 的概念，只剩 Reducers。
+
+3.由于所有的数据都在 Store 中，对于非 Controller-View 的子组件来说，所有的数据均来自 props，因此在 shouldComponentUpdate 中，只需要对比 this.props.xxx !== nextProps.xxx 即可。一行代码优化组件性能！
+
+4.数据层（M）与视图层（V）的抽离意味着更简单的 Isomorphic/Universal 应用
+
+
+
+
+http://segmentfault.com/a/1190000002432718
+Ajax 代码设计的问题
+
+React 教程给的 Demo, Ajax 没有很明确的介绍, 我也没深入挖..
+Ajax 拿到的数据, 要么设置在 props, 要么设置在 state
+当然我考虑的是, 应用当中有 Store, 就尽量用 Store 了, 方便复用
+不过实际的应用当中, 高达 10 层的模块嵌套也可能存在, 并没那么自由
+
+我之前一直操心 Ajax 代码放在哪, 是在 Component 方法内部?
+还是放在 Store 当中? 还是独立存放在另一个位置?
+麻烦在于, Ajax 加载状态可能跟模块内部紧密相关..
+同时, Ajax 代码写在模块当中, 重用的可能性又明显下降了
+Ajax 大部分是可以引起 Store 更新的, 那么在 Store 里也许不错
+可是, 不在 View 当中, View 就要用 action 通知 Ajax 了, 这很不方便
+不好取舍... 当前牺牲的是模块的复用性...
+
+与此相关的一个问题是模块被移除之后, 异步方法调用 setState 会报错
+修补的办法是临时加上 isMounted 对模块进行检验...
+不过这个方案让我有点困惑, 显然不是一个漂亮的能免于各种问题的方案..
+也许异步调用尽量放到模块以外是更好的办法, 但并不明朗..
+
