@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2016/2 | Whyy&#39;s Blog</title>
+  <title>React  SetState method | Whyy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Whyy's Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2016/02/index.html">
+  <meta name="description" content="setState( function|object nextState, [function callback] ) 这是 setState方法的定义，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React  SetState method">
+<meta property="og:url" content="http://yoursite.com/2014/08/28/reactState/index.html">
 <meta property="og:site_name" content="Whyy's Blog">
-<meta property="og:description">
+<meta property="og:description" content="setState( function|object nextState, [function callback] ) 这是 setState方法的定义，">
+<meta property="og:updated_time" content="2016-02-25T06:45:15.664Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Whyy's Blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="React  SetState method">
+<meta name="twitter:description" content="setState( function|object nextState, [function callback] ) 这是 setState方法的定义，">
   
     <link rel="alternative" href="/atom.xml" title="Whyy&#39;s Blog" type="application/atom+xml">
   
@@ -36,8 +37,8 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
-          isArchive: true,
+          isPost: true,
+          isArchive: false,
           isTag: false,
           isCategory: false,
           open_in_new: false
@@ -219,50 +220,137 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-reactState" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016/02/23/hello-world/" class="archive-article-date">
-      <time datetime="2016-02-23T06:06:35.396Z" itemprop="datePublished">02-23</time>
+    <div class="article-meta">
+      <a href="/2014/08/28/reactState/" class="article-date">
+      <time datetime="2014-08-27T16:00:00.000Z" itemprop="datePublished">2014-08-28</time>
 </a>
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/23/hello-world/">Hello World</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React  SetState method
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
+    </div>
 
-          
-        </div>
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>setState( function|object nextState, [function callback] ) 这是 setState方法的定义，<br><a id="more"></a><br>但是那是在实际开发中，发现许多同学这样用。setState( function|object nextState) 后 [function callback]，其实这是不对的， setState method 是一个异步的，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            showSpiner: <span class="literal">false</span></span><br><span class="line">        &#125;);</span><br><span class="line"><span class="keyword">this</span>.change();</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            showSpiner: <span class="literal">false</span></span><br><span class="line">        &#125;,<span class="keyword">this</span>.change);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
   </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2015/01/10/flex/">
+                    Web的Flex弹性盒模型
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2014/08/28/reactLifecycle/">
+                    React  Lifecycle
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
+
+
+    
+        <section class="youyan" id="comments">
+  <div id="uyan_frame"></div>
+  <script src="http://v2.uyan.cc/code/uyan.js?uid=2085034"></script>
+</section>
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2015/01/10/flex/" title="上一篇: Web的Flex弹性盒模型">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2014/08/28/reactLifecycle/" title="下一篇: React  Lifecycle">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/03/14/React-CreatClassAndExtendsComponet/">React.createClass VS extends React.Component</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/23/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/10/hexo-post-version-control/">关联 GitHub, 让 Hexo 支持查看文章更新历史</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/28/Front-End-Study/">个人 Web 前端学习路线</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/01/10/flex/">Web的Flex弹性盒模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/08/28/reactState/">React  SetState method</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/08/28/reactLifecycle/">React  Lifecycle</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/08/28/git/">Simple Git book</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/08/28/front-end-structure/">Frontend Knowledge Structure</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
@@ -323,17 +411,6 @@
         };
     })
 </script>
-
-    <button class="hide-labels">TAG 开关</button>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
